@@ -1,15 +1,15 @@
-from argostranslatefiles.abstract_file import AbstractFile
-import zipfile
-import bs4
-from bs4 import BeautifulSoup
-from bs4.element import NavigableString
-
 import argostranslate
-from argostranslate import translate
-from argostranslate.tags import Tag, translate_tags
+import bs4
+from argostranslate.tags import Tag
+
+from argostranslatefiles.abstract_file import AbstractFile
 
 
 class AbstractXml(AbstractFile):
+
+    def is_translatable(self, soup):
+        return soup.text != ""
+
     def itag_of_soup(self, soup):
         """Returns an argostranslate.tags.ITag tree from a BeautifulSoup object.
         Args:
@@ -20,8 +20,8 @@ class AbstractXml(AbstractFile):
         if isinstance(soup, bs4.element.NavigableString):
             return str(soup)
 
-        translateable = soup.text != ""
-        to_return = Tag([self.itag_of_soup(content) for content in soup.contents], translateable)
+        translatable = self.is_translatable(soup)
+        to_return = Tag([self.itag_of_soup(content) for content in soup.contents], translatable)
         to_return.soup = soup
         return to_return
 

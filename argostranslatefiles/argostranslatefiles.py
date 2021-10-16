@@ -1,9 +1,11 @@
-from argostranslatefiles.formats.docx import Docx
+from argostranslatefiles.formats.openxml.docx import Docx
+from argostranslatefiles.formats.openxml.pptx import Pptx
 
 
 def get_supported_formats():
     return [
-        Docx()
+        Docx(),
+        Pptx()
     ]
 
 
