@@ -3,7 +3,9 @@ import zipfile
 
 from argostranslate.tags import translate_tags
 from bs4 import BeautifulSoup
+
 from argostranslatefiles.formats.abstract_xml import AbstractXml
+
 
 class Docx(AbstractXml):
     supported_file_extensions = ['.docx']
@@ -14,17 +16,15 @@ class Docx(AbstractXml):
         inzip = zipfile.ZipFile(file_path, "r")
         outzip = zipfile.ZipFile(outzip_path, "w")
 
-        document = inzip.read('word/document.xml')
-
-        soup = BeautifulSoup(document, 'xml')
-
-        itag = self.itag_of_soup(soup)
-        translated_tag = translate_tags(underlying_translation, itag)
-        translated_soup = self.soup_of_itag(translated_tag)
-
         for inzipinfo in inzip.infolist():
             with inzip.open(inzipinfo) as infile:
                 if inzipinfo.filename == "word/document.xml":
+                    soup = BeautifulSoup(infile.read(), 'xml')
+
+                    itag = self.itag_of_soup(soup)
+                    translated_tag = translate_tags(underlying_translation, itag)
+                    translated_soup = self.soup_of_itag(translated_tag)
+
                     outzip.writestr(inzipinfo.filename, str(translated_soup))
                 else:
                     outzip.writestr(inzipinfo.filename, infile.read())
