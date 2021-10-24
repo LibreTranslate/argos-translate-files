@@ -1,3 +1,5 @@
+from argostranslate.translate import ITranslation
+
 from argostranslatefiles.formats.openxml.docx import Docx
 from argostranslatefiles.formats.openxml.pptx import Pptx
 
@@ -9,7 +11,7 @@ def get_supported_formats():
     ]
 
 
-def translate_file(underlying_translation, file_path: str):
+def translate_file(underlying_translation: ITranslation, file_path: str):
     """Translate a file.
 
     Args:

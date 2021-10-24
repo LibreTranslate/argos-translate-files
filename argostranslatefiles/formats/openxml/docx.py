@@ -1,7 +1,7 @@
-import os.path
 import zipfile
 
 from argostranslate.tags import translate_tags
+from argostranslate.translate import ITranslation
 from bs4 import BeautifulSoup
 
 from argostranslatefiles.formats.abstract_xml import AbstractXml
@@ -10,8 +10,8 @@ from argostranslatefiles.formats.abstract_xml import AbstractXml
 class Docx(AbstractXml):
     supported_file_extensions = ['.docx']
 
-    def translate(self, underlying_translation, file_path):
-        outzip_path = os.path.dirname(file_path) + "/translated_" + os.path.basename(file_path)
+    def translate(self, underlying_translation: ITranslation, file_path: str):
+        outzip_path = self.get_output_path(underlying_translation, file_path)
 
         inzip = zipfile.ZipFile(file_path, "r")
         outzip = zipfile.ZipFile(outzip_path, "w")
