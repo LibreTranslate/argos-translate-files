@@ -8,7 +8,7 @@ with open("README.md") as f:
 
 setup(
     name="argostranslatefiles",
-    version="1.5.1",
+    version="1.0.0",
     description="Translate files with Argos Translate",
     long_description=long_description,
     long_description_content_type="text/markdown",
