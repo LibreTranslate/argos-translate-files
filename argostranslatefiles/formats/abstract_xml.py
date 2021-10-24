@@ -1,6 +1,6 @@
 import argostranslate
 import bs4
-from argostranslate.tags import Tag
+from argostranslate.tags import Tag, ITag
 
 from argostranslatefiles.abstract_file import AbstractFile
 
@@ -25,7 +25,7 @@ class AbstractXml(AbstractFile):
         to_return.soup = soup
         return to_return
 
-    def soup_of_itag(self, itag):
+    def soup_of_itag(self, itag: ITag):
         """Returns a BeautifulSoup object from an Argos Translate ITag.
         Args:
             itag (argostranslate.tags.ITag): ITag object to convert to Soup

@@ -1,4 +1,3 @@
-import os.path
 import zipfile
 
 from argostranslate.tags import translate_tags
