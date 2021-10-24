@@ -1,3 +1,6 @@
+import argostranslatefiles
+
+
 def test_init():
     """Test Argos translate models initialization"""
-    assert 1 == 1
+    assert len(argostranslatefiles.get_supported_formats()) >= 1
