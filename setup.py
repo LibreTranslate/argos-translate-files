@@ -7,7 +7,7 @@ with open("README.md") as f:
     long_description = f.read()
 
 setup(
-    name="argostranslatefiles",
+    name="argos-translate-files",
     version="1.0.0",
     description="Translate files with Argos Translate",
     long_description=long_description,
