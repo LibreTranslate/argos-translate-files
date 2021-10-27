@@ -2,7 +2,7 @@
 Translate files using [Beautiful Soup](https://beautiful-soup-4.readthedocs.io/en/latest/) and [Argos Translate](https://github.com/argosopentech/argos-translate).
 
 ## Supported file format
-.txt, .docx, .pptx
+.txt, .odt, .docx, .pptx
 
 ## Install
 ```
