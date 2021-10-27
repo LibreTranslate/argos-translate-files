@@ -2,10 +2,12 @@ from argostranslate.translate import ITranslation
 
 from argostranslatefiles.formats.openxml.docx import Docx
 from argostranslatefiles.formats.openxml.pptx import Pptx
+from argostranslatefiles.formats.txt import Txt
 
 
 def get_supported_formats():
     return [
+        Txt(),
         Docx(),
         Pptx()
     ]
