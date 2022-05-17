@@ -4,7 +4,7 @@ Translate files using [Beautiful Soup](https://beautiful-soup-4.readthedocs.io/e
 
 ## Supported file format
 
-.txt, .odt, .odp, .docx, .pptx
+.txt, .odt, .odp, .docx, .pptx, .epub
 
 ## Install
 
