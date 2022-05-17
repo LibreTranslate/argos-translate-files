@@ -1,3 +1,4 @@
-beautifulsoup4==4.11.1
+beautifulsoup4>=4.9.3
 lxml==4.8.0
 argostranslate>=1.5.1
+translatehtml>=1.5.2
