@@ -1,5 +1,6 @@
 from argostranslate.translate import ITranslation
 
+from argostranslatefiles.formats.opendocument.odp import Odp
 from argostranslatefiles.formats.opendocument.odt import Odt
 from argostranslatefiles.formats.openxml.docx import Docx
 from argostranslatefiles.formats.openxml.pptx import Pptx
@@ -10,6 +11,7 @@ def get_supported_formats():
     return [
         Txt(),
         Odt(),
+        Odp(),
         Docx(),
         Pptx()
     ]
