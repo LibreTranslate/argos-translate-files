@@ -11,6 +11,7 @@ class Html(AbstractFile):
         outfile_path = self.get_output_path(underlying_translation, file_path)
 
         infile = open(file_path, "r")
+        outfile = open(outfile_path, "w")
 
         content = infile.read()
 
@@ -25,7 +26,6 @@ class Html(AbstractFile):
         if head_present:
             translated = str(head) + translated
 
-        outfile = open(outfile_path, "w")
         outfile.write(translated)
 
         infile.close()
