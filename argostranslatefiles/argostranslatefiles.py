@@ -1,5 +1,6 @@
 from argostranslate.translate import ITranslation
 
+from argostranslatefiles.formats.html import Html
 from argostranslatefiles.formats.opendocument.odp import Odp
 from argostranslatefiles.formats.opendocument.odt import Odt
 from argostranslatefiles.formats.openxml.docx import Docx
@@ -15,7 +16,8 @@ def get_supported_formats():
         Odp(),
         Docx(),
         Pptx(),
-        Epub()
+        Epub(),
+        Html()
     ]
 
 
