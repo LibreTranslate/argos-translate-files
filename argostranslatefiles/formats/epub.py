@@ -33,7 +33,7 @@ class Epub(AbstractXml):
                     translated_soup = self.soup_of_itag(translated_tag)
 
                     outzip.writestr(inzipinfo.filename, str(translated_soup))
-                elif re.search(r'OPS\/[a-zA-Z0-9\_]*.xhtml', inzipinfo.filename):
+                elif inzipinfo.filename.endswith('.html') or inzipinfo.filename.endswith('.xhtml'):
                     head = '<?xml version="1.0" encoding="utf-8"?>\n<!DOCTYPE html>'
                     content = str(infile.read(), 'utf-8')
                     head_present = content.startswith(head)
