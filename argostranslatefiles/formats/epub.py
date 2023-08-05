@@ -24,7 +24,8 @@ class Epub(AbstractXml):
 
         for inzipinfo in inzip.infolist():
             with inzip.open(inzipinfo) as infile:
-                if inzipinfo.filename == "OPS/content.opf" or inzipinfo.filename == "OPS/toc.ncx":
+                translatable_xml_filenames = ["OPS/content.opf", "OPS/toc.ncx", "OEBPS/content.opf", "OEBPS/toc.ncx"]
+                if inzipinfo.filename in translatable_xml_filenames:
                     soup = BeautifulSoup(infile.read(), 'xml')
 
                     itag = self.itag_of_soup(soup)
