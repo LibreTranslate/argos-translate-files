@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+	<title></title>
+	<meta name="generator" content="LibreOffice 7.3.7.2 (Linux)"/>
+	<meta name="created" content="2023-08-05T08:34:42.719201675"/>
+	<meta name="changed" content="2023-08-05T08:56:01.301561514"/>
+	<style type="text/css">
+		@page { size: 8.5in 11in; margin: 0.79in }
+		p { line-height: 115%; margin-bottom: 0.1in; background: transparent }
+		h1 { margin-bottom: 0.08in; background: transparent; page-break-after: avoid }
+		h1.western { font-family: "Liberation Sans", sans-serif; font-size: 18pt; font-weight: bold }
+		h1.cjk { font-family: "Noto Sans CJK SC"; font-size: 18pt; font-weight: bold }
+		h1.ctl { font-family: "Lohit Devanagari"; font-size: 18pt; font-weight: bold }
+		h2 { margin-top: 0.14in; margin-bottom: 0.08in; background: transparent; page-break-after: avoid }
+		h2.western { font-family: "Liberation Serif", serif; font-size: 18pt; font-weight: bold }
+		h2.cjk { font-family: "Noto Serif CJK SC"; font-size: 18pt; font-weight: bold }
+		h2.ctl { font-family: "Lohit Devanagari"; font-size: 18pt; font-weight: bold }
+		h3 { margin-top: 0.1in; margin-bottom: 0.08in; background: transparent; page-break-after: avoid }
+		h3.western { font-family: "Liberation Serif", serif; font-size: 14pt; font-weight: bold }
+		h3.cjk { font-family: "Noto Serif CJK SC"; font-size: 14pt; font-weight: bold }
+		h3.ctl { font-family: "Lohit Devanagari"; font-size: 14pt; font-weight: bold }
+		pre { background: transparent }
+		pre.western { font-family: "Liberation Mono", monospace; font-size: 10pt }
+		pre.cjk { font-family: "Noto Sans Mono CJK SC", monospace; font-size: 10pt }
+		pre.ctl { font-family: "Liberation Mono", monospace; font-size: 10pt }
+		a:link { color: #000080; text-decoration: underline }
+		code.western { font-family: "Liberation Mono", monospace }
+		code.cjk { font-family: "Noto Sans Mono CJK SC", monospace }
+		code.ctl { font-family: "Liberation Mono", monospace }
+	</style>
+</head>
+<body lang="en-US" link="#000080" vlink="#800000" dir="ltr"><p align="center" style="line-height: 100%; margin-top: 0.17in; margin-bottom: 0.08in; page-break-after: avoid">
+<font face="Liberation Sans, sans-serif"><font size="6" style="font-size: 28pt"><b>LibreTranslate</b></font></font></p>
+<p><br/>
+<br/>
+
+</p>
+<p>Free and Open Source Machine Translation API, entirely
+self-hosted. Unlike other APIs, it doesn't rely on proprietary
+providers such as Google or Azure to perform translations. Instead,
+its translation engine is powered by the open source <a href="https://github.com/argosopentech/argos-translate">Argos
+Translate</a> library.</p>
+<p><br/>
+<br/>
+
+</p>
+<h1 class="western">Argos Translate</h1>
+<p>Argos Translate uses <a href="https://opennmt.net/">OpenNMT</a>
+for translations and can be used as either a Python library,
+command-line, or GUI application. Argos Translate supports installing
+language model packages which are zip archives with a &quot;.argosmodel&quot;
+extension containing the data needed for translation. <a href="https://libretranslate.com/">LibreTranslate
+</a>is an API and web-app built on top of Argos Translate. 
+</p>
+<p><br/>
+<br/>
+
+</p>
+<h1 class="western">File translation</h1>
+<p><br/>
+<br/>
+
+</p>
+<p>Argos Translate Files is a Python library that translates several
+different types of files. Argos Translate Files uses Argos Translate
+as a translation engine. The LibreTranslate API uses Argos Translate
+Files to translate text, html, document, presentation, and ebook
+files.</p>
+<p><br/>
+<br/>
+
+</p>
+<h1 class="western">API Keys</h1>
+<p>LibreTranslate supports per-user limit quotas, e.g. you can issue
+API keys to users so that they can enjoy higher requests limits per
+minute (if you also set <code class="western">--req-limit</code>). By
+default all users are rate-limited based on <code class="western">--req-limit</code>,
+but passing an optional <code class="western">api_key</code>
+parameter to the REST endpoints allows a user to enjoy higher request
+limits.</p>
+<p>To use API keys simply start LibreTranslate with the <code class="western">--api-keys</code>
+option. If you modified the API keys database path with the option
+<code class="western">--api-keys-db-path</code>, you must specify the
+path with the same argument flag when using the <code class="western">ltmanage
+keys</code> command.</p>
+<p><br/>
+<br/>
+
+</p>
+<h2 class="western">Localization</h2>
+<p>The LibreTranslate Web UI is available in all the languages for
+which LibreTranslate can translate to. It can also (roughly)
+<a href="https://github.com/LibreTranslate/LibreTranslate/blob/main/scripts/update_locales.py">translate
+itself!</a> Some languages might not appear in the UI since they
+haven't been reviewed by a human yet. You can enable all languages by
+turning on <code class="western">--debug</code> mode.</p>
+<p><br/>
+<br/>
+
+</p>
+<h2 class="western">Install and Run</h2>
+<p>You can run your own API server with just a few lines of setup!</p>
+<p>Make sure you have Python installed (3.8 or higher is
+recommended), then simply run:</p>
+<pre class="western">pip install libretranslate
+libretranslate [args]</pre><p>
+Then open a web browser to <a href="http://localhost:5000/">http://localhost:5000</a></p>
+<p>On Ubuntu 20.04 you can also use the install script available at
+<a href="https://github.com/argosopentech/LibreTranslate-init">https://github.com/argosopentech/LibreTranslate-init</a></p>
+<p><br/>
+<br/>
+
+</p>
+<p><br/>
+<br/>
+
+</p>
+<h2 class="western">FAQ</h2>
+<h3 class="western"><a name="user-content-can-i-use-your-api-server-at-libretranslatecom-for-my-application-in-production"></a>
+Can I use your API server at libretranslate.com for my application in
+production?</h3>
+<p>In short, no. <a href="https://portal.libretranslate.com/">You
+need to buy an API key</a>. You can always run LibreTranslate for
+free on your own server of course.</p>
+<h3 class="western"><a name="user-content-can-i-use-libretranslate-behind-a-reverse-proxy-like-apache2-or-caddy"></a>
+Can I use LibreTranslate behind a reverse proxy, like Apache2 or
+Caddy?</h3>
+<p>Yes, here are config examples for Apache2 and Caddy that redirect
+a subdomain (with HTTPS certificate) to LibreTranslate running on a
+docker at localhost.</p>
+<pre class="western" style="margin-bottom: 0.2in">sudo docker run -ti --rm -p 127.0.0.1:5000:5000 libretranslate/libretranslate</pre><p>
+You can remove <code class="western">127.0.0.1</code> on the above
+command if you want to be able to access it from <code class="western">domain.tld:5000</code>,
+in addition to <code class="western">subdomain.domain.tld</code>
+(this can be helpful to determine if there is an issue with Apache2
+or the docker container).</p>
+</body>
+</html>
