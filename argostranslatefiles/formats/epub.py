@@ -54,3 +54,33 @@ class Epub(AbstractXml):
         outzip.close()
 
         return outzip_path
+
+    def get_texts(self, file_path: str):
+        inzip = zipfile.ZipFile(file_path, "r")
+
+        texts = ""
+
+        for inzipinfo in inzip.infolist():
+            if len(texts) > 4096:
+                break
+            with inzip.open(inzipinfo) as infile:
+                translatable_xml_filenames = ["OPS/content.opf", "OPS/toc.ncx", "OEBPS/content.opf", "OEBPS/toc.ncx"]
+                if inzipinfo.filename in translatable_xml_filenames:
+                    soup = BeautifulSoup(infile.read(), 'xml')
+
+                    texts += self.itag_of_soup(soup).text()
+                elif inzipinfo.filename.endswith('.html') or inzipinfo.filename.endswith('.xhtml'):
+                    head = '<?xml version="1.0" encoding="utf-8"?>\n<!DOCTYPE html>'
+                    content = str(infile.read(), 'utf-8')
+                    head_present = content.startswith(head)
+
+                    if head_present:
+                        content = content[len(head):]
+
+                    texts += content
+                else:
+                    texts += infile.read().decode()
+
+        inzip.close()
+
+        return texts
