@@ -14,7 +14,7 @@ setup(
     long_description_content_type="text/markdown",
     author="S. Thuret",
     author_email="contact@sebastien-thuret.fr",
-    url="https://www.argosopentech.com",
+    url="https://github.com/LibreTranslate/argos-translate-files",
     packages=find_packages(),
     install_requires=required_packages,
 )
