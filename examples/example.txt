@@ -1,0 +1,34 @@
+LibreTranslate
+
+Free and Open Source Machine Translation API, entirely self-hosted. Unlike other APIs, it doesn't rely on proprietary providers such as Google or Azure to perform translations. Instead, its translation engine is powered by the open source Argos Translate library.
+
+Argos Translate
+Argos Translate uses OpenNMT for translations and can be used as either a Python library, command-line, or GUI application. Argos Translate supports installing language model packages which are zip archives with a ".argosmodel" extension containing the data needed for translation. LibreTranslate is an API and web-app built on top of Argos Translate. 
+
+File translation
+
+Argos Translate Files is a Python library that translates several different types of files. Argos Translate Files uses Argos Translate as a translation engine. The LibreTranslate API uses Argos Translate Files to translate text, html, document, presentation, and ebook files.
+
+API Keys
+LibreTranslate supports per-user limit quotas, e.g. you can issue API keys to users so that they can enjoy higher requests limits per minute (if you also set --req-limit). By default all users are rate-limited based on --req-limit, but passing an optional api_key parameter to the REST endpoints allows a user to enjoy higher request limits.
+To use API keys simply start LibreTranslate with the --api-keys option. If you modified the API keys database path with the option --api-keys-db-path, you must specify the path with the same argument flag when using the ltmanage keys command.
+
+Localization
+The LibreTranslate Web UI is available in all the languages for which LibreTranslate can translate to. It can also (roughly) translate itself! Some languages might not appear in the UI since they haven't been reviewed by a human yet. You can enable all languages by turning on --debug mode.
+
+Install and Run
+You can run your own API server with just a few lines of setup!
+Make sure you have Python installed (3.8 or higher is recommended), then simply run:
+pip install libretranslate
+libretranslate [args]
+Then open a web browser to http://localhost:5000
+On Ubuntu 20.04 you can also use the install script available at https://github.com/argosopentech/LibreTranslate-init
+
+
+FAQ
+Can I use your API server at libretranslate.com for my application in production?
+In short, no. You need to buy an API key. You can always run LibreTranslate for free on your own server of course.
+Can I use LibreTranslate behind a reverse proxy, like Apache2 or Caddy?
+Yes, here are config examples for Apache2 and Caddy that redirect a subdomain (with HTTPS certificate) to LibreTranslate running on a docker at localhost.
+sudo docker run -ti --rm -p 127.0.0.1:5000:5000 libretranslate/libretranslate
+You can remove 127.0.0.1 on the above command if you want to be able to access it from domain.tld:5000, in addition to subdomain.domain.tld (this can be helpful to determine if there is an issue with Apache2 or the docker container).
