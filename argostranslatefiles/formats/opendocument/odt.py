@@ -33,3 +33,20 @@ class Odt(AbstractXml):
         outzip.close()
 
         return outzip_path
+
+    def get_texts(self, file_path: str):
+        inzip = zipfile.ZipFile(file_path, "r")
+
+        texts = ""
+
+        for inzipinfo in inzip.infolist():
+            if len(texts) > 4096:
+                break
+            with inzip.open(inzipinfo) as infile:
+                if inzipinfo.filename == "content.xml":
+                    soup = BeautifulSoup(infile.read(), 'xml')
+                    texts += self.itag_of_soup(soup).text()
+
+        inzip.close()
+
+        return texts
