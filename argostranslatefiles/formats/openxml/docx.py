@@ -49,4 +49,4 @@ class Docx(AbstractXml):
 
         inzip.close()
 
-        return texts
+        return texts[:4096]
