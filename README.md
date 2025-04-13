@@ -4,7 +4,7 @@ Translate files using [Argos Translate](https://github.com/argosopentech/argos-t
 
 ## Supported file format
 
-.txt, .odt, .odp, .docx, .pptx, .epub, .html
+.txt, .odt, .odp, .docx, .pptx, .epub, .html, .srt
 
 ## Install
 
