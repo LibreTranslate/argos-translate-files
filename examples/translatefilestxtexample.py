@@ -12,6 +12,7 @@ python3 examples/translatefilestxtexample.py examples/example.epub
 python3 examples/translatefilestxtexample.py examples/example.txt
 python3 examples/translatefilestxtexample.py examples/example.odt
 python3 examples/translatefilestxtexample.py examples/example.html
+python3 examples/translatefilestxtexample.py examples/example.srt
 
 """
 

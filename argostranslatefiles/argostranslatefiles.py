@@ -7,6 +7,7 @@ from argostranslatefiles.formats.openxml.docx import Docx
 from argostranslatefiles.formats.openxml.pptx import Pptx
 from argostranslatefiles.formats.txt import Txt
 from argostranslatefiles.formats.epub import Epub
+from argostranslatefiles.formats.srt import Srt
 
 
 def get_supported_formats():
@@ -17,7 +18,8 @@ def get_supported_formats():
         Docx(),
         Pptx(),
         Epub(),
-        Html()
+        Html(),
+        Srt(),
     ]
 
 
