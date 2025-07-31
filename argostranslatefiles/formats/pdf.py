@@ -39,7 +39,8 @@ class Pdf(AbstractFile):
         return " ".join(texts)[:4096]
 
 
-
+# Roughly based on https://github.com/CBIhalsen/PolyglotPDF/blob/main/main.py
+# which is GPLv3
 class PdfTranslator:    
     def __init__(self, pdf_path: str, output_path: str, underlying_translation: ITranslation):
         self.pdf_path = pdf_path
