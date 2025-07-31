@@ -3,3 +3,4 @@ lxml>=4.9.2
 argostranslate>=1.5.1
 translatehtml>=1.5.1
 pysrt>=1.1.2
+PyMuPDF>=1.26.3
