@@ -25,11 +25,15 @@ class Pdf(AbstractFile):
 
         texts = []
 
+        count = 0
         for page_num in range(doc.page_count):
             page = doc.load_page(page_num)
-            text = page.get_text()
-            if text.strip():
-                texts.append(text.strip())
+            text = page.get_text().strip()
+            if text:
+                count += len(text)
+                texts.append(text)
+                if count >= 4096:
+                    break
         
         doc.close()
         return " ".join(texts)[:4096]
