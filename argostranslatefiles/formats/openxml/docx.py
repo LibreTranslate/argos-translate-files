@@ -18,7 +18,10 @@ class Docx(AbstractXml):
 
         for inzipinfo in inzip.infolist():
             with inzip.open(inzipinfo) as infile:
-                if inzipinfo.filename == "word/document.xml":
+                if (inzipinfo.filename == "word/document.xml" or 
+                    inzipinfo.filename.startswith("word/header") or 
+                    inzipinfo.filename.startswith("word/footer")):
+                    
                     soup = BeautifulSoup(infile.read(), 'xml')
 
                     itag = self.itag_of_soup(soup)
@@ -43,7 +46,10 @@ class Docx(AbstractXml):
             if len(texts) > 4096:
                 break
             with inzip.open(inzipinfo) as infile:
-                if inzipinfo.filename == "word/document.xml":
+                if (inzipinfo.filename == "word/document.xml" or 
+                    inzipinfo.filename.startswith("word/header") or 
+                    inzipinfo.filename.startswith("word/footer")):
+                    
                     soup = BeautifulSoup(infile.read(), 'xml')
                     texts += self.itag_of_soup(soup).text()
 
