@@ -21,3 +21,6 @@ class AbstractFile():
 
     @abc.abstractmethod
     def translate(self, underlying_translation: ITranslation, file_path: str): raise NotImplementedError
+
+    @abc.abstractmethod
+    def get_texts(self, file_path: str): raise NotImplementedError

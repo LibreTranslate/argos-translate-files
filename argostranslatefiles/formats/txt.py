@@ -19,3 +19,6 @@ class Txt(AbstractFile):
         outfile.close()
 
         return outfile_path
+
+    def get_texts(self, file_path: str):
+        return open(file_path, "r").read(4096)

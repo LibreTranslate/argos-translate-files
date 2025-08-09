@@ -2,6 +2,7 @@ import translatehtml
 from argostranslate.translate import ITranslation
 
 from argostranslatefiles.abstract_file import AbstractFile
+from bs4 import BeautifulSoup
 
 
 class Html(AbstractFile):
@@ -32,3 +33,11 @@ class Html(AbstractFile):
         outfile.close()
 
         return outfile_path
+
+    def get_texts(self, file_path: str):
+        infile = open(file_path, "r")
+
+        content = infile.read()
+
+        soup = BeautifulSoup(content, "html.parser")
+        return translatehtml.itag_of_soup(soup).text()[0:4096]

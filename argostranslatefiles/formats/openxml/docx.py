@@ -18,7 +18,10 @@ class Docx(AbstractXml):
 
         for inzipinfo in inzip.infolist():
             with inzip.open(inzipinfo) as infile:
-                if inzipinfo.filename == "word/document.xml":
+                if (inzipinfo.filename == "word/document.xml" or 
+                    inzipinfo.filename.startswith("word/header") or 
+                    inzipinfo.filename.startswith("word/footer")):
+                    
                     soup = BeautifulSoup(infile.read(), 'xml')
 
                     itag = self.itag_of_soup(soup)
@@ -33,3 +36,23 @@ class Docx(AbstractXml):
         outzip.close()
 
         return outzip_path
+
+    def get_texts(self, file_path: str):
+        inzip = zipfile.ZipFile(file_path, "r")
+
+        texts = ""
+
+        for inzipinfo in inzip.infolist():
+            if len(texts) > 4096:
+                break
+            with inzip.open(inzipinfo) as infile:
+                if (inzipinfo.filename == "word/document.xml" or 
+                    inzipinfo.filename.startswith("word/header") or 
+                    inzipinfo.filename.startswith("word/footer")):
+                    
+                    soup = BeautifulSoup(infile.read(), 'xml')
+                    texts += self.itag_of_soup(soup).text()
+
+        inzip.close()
+
+        return texts[:4096]
