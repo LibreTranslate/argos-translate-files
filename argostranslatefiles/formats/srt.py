@@ -1,4 +1,5 @@
 import pysrt
+import textwrap
 from argostranslate.translate import ITranslation
 from argostranslatefiles.abstract_file import AbstractFile
 
@@ -12,7 +13,9 @@ class Srt(AbstractFile):
         subs = pysrt.open(file_path)
 
         for sub in subs:
-            sub.text = underlying_translation.translate(sub.text)
+            cleaned_text = sub.text.replace('\r\n', ' ').replace('\n', ' ').replace('\r', ' ')
+            translated = underlying_translation.translate(cleaned_text)
+            sub.text = textwrap.fill(translated, width=40)
 
         subs.save(outfile_path, encoding='utf-8')
 
