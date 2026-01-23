@@ -24,7 +24,7 @@ def get_supported_formats():
     ]
 
 
-def translate_file(underlying_translation: ITranslation, file_path: str):
+def translate_file(underlying_translation: ITranslation, file_path: str, get_output_path = None):
     """Translate a file.
 
     Args:
@@ -37,6 +37,8 @@ def translate_file(underlying_translation: ITranslation, file_path: str):
 
     for supported_format in get_supported_formats():
         if supported_format.support(file_path):
+            if get_output_path is not None:
+                supported_format.get_output_path = get_output_path
             return supported_format.translate(underlying_translation, file_path)
 
     return False
