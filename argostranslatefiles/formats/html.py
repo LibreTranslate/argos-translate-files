@@ -1,4 +1,4 @@
-import translatehtml
+from argostranslatefiles import translatehtml
 from argostranslate.translate import ITranslation
 
 from argostranslatefiles.abstract_file import AbstractFile

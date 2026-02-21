@@ -1,7 +1,7 @@
 import re
 import zipfile
 
-import translatehtml
+from argostranslatefiles import translatehtml
 from argostranslate.tags import translate_tags
 from argostranslate.translate import ITranslation
 from bs4 import BeautifulSoup
