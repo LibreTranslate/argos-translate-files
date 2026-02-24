@@ -1,4 +1,4 @@
-beautifulsoup4>=4.9.3
+beautifulsoup4==4.9.3
 lxml>=4.9.2
 argos-translate-lt>=1.12.1
 pysrt>=1.1.2
